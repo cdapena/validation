@@ -1,6 +1,6 @@
 .POSIX:
-DESTDIR=public
-DESTDIRPOST=content/posts/
+DESTDIR=dist
+DESTDIRPOST=dist/posts/
 
 
 .HUGO: all
@@ -18,7 +18,7 @@ build:
 
 .HUGO: post
 post:
-	@echo "Posting"
-	@echo title: $(POST_TITLE) > content/posts/$(POST_NAME)
-
+        @echo "Posting"
+        @hugo new posts/$(POST_NAME).md
+        @echo "Title: $POST_TITLE" > posts/$(POST_NAME).md
 
